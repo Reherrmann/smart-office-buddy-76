@@ -1,12 +1,26 @@
 import type { ComponentType, ReactNode } from "react";
+import logoUrl from "@/assets/pluri-logo.jpg";
+
+function Logo({ size = 36 }: { size?: number }) {
+  return (
+    <img
+      src={logoUrl}
+      alt="PLURI"
+      width={size}
+      height={size}
+      className="rounded-lg object-cover shrink-0"
+      style={{ width: size, height: size }}
+    />
+  );
+}
 
 /* ---------- shared layout primitives ---------- */
 
 function Orbs() {
   return (
     <>
-      <div className="glow-orb" style={{ width: 700, height: 700, top: -200, left: -200, background: "oklch(0.65 0.2 195)" }} />
-      <div className="glow-orb" style={{ width: 800, height: 800, bottom: -300, right: -200, background: "oklch(0.72 0.18 155)" }} />
+      <div className="glow-orb" style={{ width: 700, height: 700, top: -200, left: -200, background: "oklch(0.35 0.1 250)" }} />
+      <div className="glow-orb" style={{ width: 800, height: 800, bottom: -300, right: -200, background: "oklch(0.82 0.15 85)", opacity: 0.25 }} />
     </>
   );
 }
@@ -17,7 +31,7 @@ function PageFrame({ children, num, title }: { children: ReactNode; num: number;
       <Orbs />
       <header className="relative flex items-center justify-between mb-12">
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-lg" style={{ background: "linear-gradient(135deg, oklch(0.78 0.18 155), oklch(0.7 0.2 195))" }} />
+          <Logo size={40} />
           <span className="slide-chrome tracking-[0.3em] font-semibold">PLURI</span>
         </div>
         {title && <span className="slide-kicker text-muted-foreground">{title}</span>}
@@ -31,7 +45,7 @@ function PageFrame({ children, num, title }: { children: ReactNode; num: number;
 function Check() {
   return (
     <span className="inline-flex shrink-0 items-center justify-center h-12 w-12 rounded-full mt-1"
-      style={{ background: "oklch(0.72 0.18 155 / 0.15)", color: "oklch(0.78 0.2 155)" }}>
+      style={{ background: "oklch(0.82 0.15 85 / 0.18)", color: "oklch(0.88 0.16 90)" }}>
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
     </span>
   );
@@ -39,7 +53,7 @@ function Check() {
 
 function Dot() {
   return (
-    <span className="inline-block h-3 w-3 rounded-full mt-5 shrink-0" style={{ background: "oklch(0.65 0.2 195)" }} />
+    <span className="inline-block h-3 w-3 rounded-full mt-5 shrink-0" style={{ background: "oklch(0.82 0.15 85)" }} />
   );
 }
 
@@ -49,7 +63,7 @@ const S01_Cover: ComponentType = () => (
   <div className="absolute inset-0 flex flex-col justify-between px-32 py-24">
     <Orbs />
     <div className="relative flex items-center gap-3">
-      <div className="h-10 w-10 rounded-lg" style={{ background: "linear-gradient(135deg, oklch(0.78 0.18 155), oklch(0.7 0.2 195))" }} />
+      <Logo size={48} />
       <span className="slide-chrome tracking-[0.3em] font-semibold">PLURI</span>
     </div>
     <div className="relative">
